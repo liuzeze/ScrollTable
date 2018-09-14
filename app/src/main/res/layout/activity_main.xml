@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/shape_line_e0e0e0"
+    android:orientation="vertical"
+
+    android:showDividers="middle">
+
+    <include
+        android:id="@+id/item_root"
+        layout="@layout/item_scroll_layout" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lz.scrolltable.InterceptLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv"
+        android:elevation="8dp"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="名称" />
+
+
+    <com.lz.scrolltable.SynScrollerLayout
+        android:id="@+id/synscrollerview"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/ll_child_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+    </com.lz.scrolltable.SynScrollerLayout>
+</com.lz.scrolltable.InterceptLayout>
+
