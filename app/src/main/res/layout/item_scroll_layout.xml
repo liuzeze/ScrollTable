@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.lz.scrolltable.InterceptLayout
+<LinearLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -10,8 +10,8 @@
     <TextView
         android:id="@+id/tv"
         android:elevation="8dp"
-        android:layout_width="180dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
         android:gravity="center"
         android:text="名称" />
 
@@ -19,7 +19,7 @@
     <com.lz.scrolltable.SynScrollerLayout
         android:id="@+id/synscrollerview"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="40dp"
         android:scrollbars="none">
 
         <LinearLayout
@@ -31,5 +31,5 @@
 
         </LinearLayout>
     </com.lz.scrolltable.SynScrollerLayout>
-</com.lz.scrolltable.InterceptLayout>
+</LinearLayout>
 

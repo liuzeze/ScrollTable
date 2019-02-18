@@ -7,8 +7,8 @@
 
     <TextView
         android:id="@+id/tv"
-        android:layout_width="180dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
         android:elevation="8dp"
         android:gravity="center"
         android:text="名称" />

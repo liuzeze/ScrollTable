@@ -21,12 +21,13 @@ import java.util.ArrayList;
  */
 public class MainActivity extends AppCompatActivity {
     private SynScrollerLayout mSynScrollerview;
+    private View mView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        final RecyclerView recyclerView = findViewById(R.id.recyclerview);
         mSynScrollerview = findViewById(R.id.synscrollerview);
         LinearLayout linearLayout = findViewById(R.id.item_root);
         LinearLayout childRoot = findViewById(R.id.ll_child_root);
@@ -44,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
         }
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-        recyclerView.setAdapter(new MainAdapter(strings, mSynScrollerview));
+        MainAdapter adapter = new MainAdapter(strings, mSynScrollerview);
+        recyclerView.setAdapter(adapter);
+
+
         recyclerView.setOnTouchListener(getListener());
         linearLayout.setOnTouchListener(getListener());
 
@@ -52,6 +56,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 Toast.makeText(view.getContext(), "条目" + position, Toast.LENGTH_SHORT).show();
+                try {
+                    View viewById = view.findViewById(R.id.ll_view);
+                    if (mView != null) {
+                        mView.setVisibility(View.GONE);
+                        viewById.setTag(null);
+                    }
+                    boolean b = viewById.getVisibility() == View.GONE;
+                    if (b) {
+                        viewById.setTag(position);
+                        viewById.setVisibility(View.VISIBLE);
+                        mView = viewById;
+                    } else {
+                        viewById.setTag(null);
+                        viewById.setVisibility(View.GONE);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 

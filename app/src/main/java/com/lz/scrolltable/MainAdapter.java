@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -25,13 +26,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ScrollViewHold
     public MainAdapter(@Nullable List<String> data, SynScrollerLayout synScrollerview) {
         mSynScrollerview = synScrollerview;
         mData = data;
+
     }
 
 
     @NonNull
     @Override
     public ScrollViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View inflate = View.inflate(viewGroup.getContext(), R.layout.item_scroll_layout, null);
+        View inflate = View.inflate(viewGroup.getContext(), R.layout.item_scroll_layout2, null);
 
 
         return new ScrollViewHolder(inflate);
@@ -48,15 +50,15 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ScrollViewHold
             }
 
         });
-
         holder.itemView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 mSynScrollerview.onTouchEvent(v, position, event);
-
                 return false;
             }
         });
+        holder.ll_view.setVisibility(holder.ll_view.getTag() == null ? View.GONE:(((int) holder.ll_view.getTag())==position? View.VISIBLE: View.GONE));
+
 
     }
 
@@ -70,12 +72,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ScrollViewHold
         public final TextView mView;
         public final SynScrollerLayout mSynScrollerLayout;
         public final LinearLayout mChildRoot;
+        public final LinearLayout ll_view;
 
         public ScrollViewHolder(@NonNull View itemView) {
             super(itemView);
             mView = itemView.findViewById(R.id.tv);
             mSynScrollerLayout = itemView.findViewById(R.id.synscrollerview);
             mChildRoot = itemView.findViewById(R.id.ll_child_root);
+            ll_view = itemView.findViewById(R.id.ll_view);
             for (int i = 0; i < 20; i++) {
                 View inflate = View.inflate(itemView.getContext(), R.layout.item_child_layout, null);
                 TextView name = inflate.findViewById(R.id.tv);
