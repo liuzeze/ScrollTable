@@ -1,5 +1,5 @@
 
-## ![友情链接(基于这个开源库修改)](https://github.com/MartinDong/ScrollingTable)  
+## ![友情链接(Kotlin版本实现)](https://github.com/MartinDong/ScrollingTable)  
 
 ### 使用java方式实现,代码更简洁 更容易理解
 # ScrollTable
